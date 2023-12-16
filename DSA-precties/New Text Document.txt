@@ -1,0 +1,70 @@
+Input: nums1 = [1,2,3,0,0,0]
+Output  = [1,2,2,3,5,6]
+ m = 3, nums2 = [2,5,6], n = 3  for (let l = m; l < m + n; l++) {
+    nums1[l] = nums2[l - m];
+  }
+  
+  //sorting it
+  for (let i = 0; i < nums1.length; i++) {
+    for (let j = 0; j < nums1.length; j++) {
+      if (nums1[i] < nums1[j]) {
+        let temp = nums1[i];
+        nums1[i] = nums1[j];
+        nums1[j] = temp;
+      }
+    }
+  }
+  return nums1;
+
+
+
+
+
+
+Dry Run of the Code:
+Input:
+
+nums1 = [1, 2, 3, 0, 0, 0]
+m = 3
+nums2 = [2, 5, 6]
+n = 3
+Line by line:
+
+for (let l = m; l < m + n; l++) {:
+
+l starts at 3 (m) and ends at 5 (m + n).
+This loop iterates through the empty spaces in nums1 where merged elements will be placed.
+nums1[l] = nums2[l - m];:
+
+Within the loop, l is used as an index in both nums1 and nums2 with offset by m.
+This line copies each element from nums2 into the corresponding empty space in nums1.
+After the loop, nums1 becomes [1, 2, 3, 2, 5, 6].
+for (let i = 0; i < nums1.length; i++) {:
+
+This loop iterates through the entire nums1 array for sorting.
+for (let j = 0; j < nums1.length; j++) {:
+
+This nested loop compares each element with every other element within nums1.
+if (nums1[i] < nums1[j]) {:
+
+This conditional checks if the current element (i) is less than the element being compared to (j).
+let temp = nums1[i];:
+
+If the condition holds, a temporary variable stores the value of the current element (i).
+nums1[i] = nums1[j];:
+
+The current element (i) is overwritten with the value of the compared element (j).
+nums1[j] = temp;:
+
+Finally, the temporary variable containing the previous value of element (i) is assigned to the compared element (j).
+return nums1;:
+
+After the nested loop finishes comparing and swapping elements, the sorted nums1 array is returned.
+Output:
+
+The final sorted array is: nums1 = [1, 2, 2, 3, 5, 6].
+This dry run demonstrates how the code merges and sorts the elements of nums1 and nums2 into the desired output.
+
+Note: This code is inefficient for this specific case as it performs unnecessary comparisons and swaps during the sorting process. A more efficient approach like merge sort would be better suited for this situation.
+
+I hope this explanation is helpful! Let me know if you have any other questions.
